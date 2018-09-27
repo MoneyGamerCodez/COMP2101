@@ -1,5 +1,5 @@
 #!/bin/bash
-#this is a demo of arithmentics
+#this is a demo of arithmentics like multiplication, division, subtraction, addition etc.
 
 read -p "Give me 2 numbers: " firstnum secondnum
 echo "$firstnum plus $secondnum is $(($firstnum + $secondnum))"
