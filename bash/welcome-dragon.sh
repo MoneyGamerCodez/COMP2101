@@ -12,4 +12,4 @@ Welcome to planet $pcname! \n Greetings $mytitle $myName,
 today's date is $today.
 "
 
-echo $welcome_message |cowsay -f cock
+echo $welcome_message |cowsay -f dragon
