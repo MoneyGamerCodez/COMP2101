@@ -25,8 +25,11 @@ for interface in ${interface_names[@]}; do
   v4name[$interface]=$(getent hosts ${v4ip[$interface]}|sed -e 's/.*  *//')
   v6ip[$interface]=`ip a s $interface|grep "inet6 "|awk '{print $2}'|sed 's,/.*,,'`
   v6name[$interface]=$(getent hosts ${v6ip[$interface]}|sed -e 's/.*  *//')
-  ifspeeds[$interface]=$(ethtool $interface | grep Speed: | awk '{print $2}')
+  ifspeeds[$interface]=$(ethtool $interface 2> /dev/null | grep Speed: | awk '{print $2}')
 done
+
+echo "System Interface Configuration Summary Report"
+echo "we have $numinterfaces interfaces."
 
 # display the gathered interface data in interface name order
 for interface in `echo ${interface_names[@]}|sort`; do
