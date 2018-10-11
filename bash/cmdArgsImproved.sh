@@ -2,6 +2,15 @@
 
 #this script will display all the command line arguments
 #it will also display how many things on the command line
+
+##########################
+# VARIABLES
+#default value for debug 0
+declare -i debug
+debug=0
+##########################
+
+
 function displayHelp {
   echo "usage: $(basename $0) [-h|--help] [-d|--debug N]"
 }
@@ -18,7 +27,8 @@ case "$1" in
   ;;
   -d|--debug)
   #found the debug option
-
+  debug="$2" # TODO: should validate debug number
+  shift
   ;;
   *)
   #bad arguments
@@ -33,3 +43,4 @@ shift
 done
 
 echo "Finished processing the command line"
+echo "debug variable is set to '$debug'"
